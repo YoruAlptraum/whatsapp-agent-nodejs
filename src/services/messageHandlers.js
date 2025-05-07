@@ -1,4 +1,4 @@
-const sendMessage = require('../services/sendMessage');
+const { sendMessage, sendInteractiveMessage } = require('../services/sendMessage');
 const responses = require('../config/responses.json');
 
 const responseDict = responses.responses;
@@ -31,7 +31,17 @@ async function handleReceivedMessage(req, res, userState) {
             }
             else {
                 // validate user input
-                let userInput = messages[0]["text"]["body"].toLowerCase();
+                let userInput;
+                if (messages[0]["type"] === "text") {
+                    userInput = messages[0]["text"]["body"].toLowerCase();
+                }
+                else if (messages[0]["type"] === "interactive") {
+                    userInput = messages[0]["interactive"]["button_reply"]["id"];
+                }
+                else {
+                    userInput = "";
+                }
+
                 if (responseDict[userState.nextMessage][userInput]) {
                     msg = responseDict[userState.nextMessage][userInput].message;
                     nextMessage = responseDict[userState.nextMessage][userInput].next;
@@ -40,7 +50,21 @@ async function handleReceivedMessage(req, res, userState) {
                     msg = "Opção inválida, digite novamente";
                 }
             }
-            apiRes = await sendMessage(contacts[0]["wa_id"], msg);
+            if (responseDict[userState.nextMessage]["options"]) {
+                let options = Object.entries(responseDict[userState.nextMessage]["options"]).map((option) => {
+                    return {
+                        type: "reply",
+                        reply: {
+                            id: option[0],
+                            title: option[1],
+                        },
+                    };
+                });
+                apiRes = await sendInteractiveMessage(contacts[0]["wa_id"], msg, options);
+            }
+            else {
+                apiRes = await sendMessage(contacts[0]["wa_id"], msg);
+            }
 
             userState.nextMessage = nextMessage;
             if (userState.nextMessage == "end") {

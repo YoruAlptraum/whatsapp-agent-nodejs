@@ -32,8 +32,8 @@
                 "interactive": {
                   "type": "button_reply",
                   "button_reply": {
-                    "id": "2 - Title 2",
-                    "title": "2"
+                    "id": "2",
+                    "title": "2 - Title"
                   }
                 }
               }

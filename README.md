@@ -18,8 +18,7 @@ you also need to install and start redis server on the server machine, for windo
 
 ## Launching the app
 
-Now you can launch the app:
-`npm run start`
+Now you can launch the app: `npm run start`
 
 The app runs by default on port 3000
 
@@ -38,6 +37,8 @@ ngrok config add-authtoken [your-authtoken]
 
 ngrok http 3000 --url=[subdomain].ngrok-free.app
 ```
+
+need to download ngrok agent and create a ngrok account
 
 ## Testing
 
@@ -63,6 +64,7 @@ sent
 ## Responses.json Structure
 
 "message" - what the bot will send the user
+
 "next" - what messaged to send next (if next == "end" the conversation ends)
 
-if you have a message with multiple choices the next user input will be checked if it matches the one of the possible answers on the message marked as "next"
+for a multiple choice input remove "message" key from a response, the next user input will be checked if it matches one of the possible options/keys

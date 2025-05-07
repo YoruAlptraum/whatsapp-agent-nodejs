@@ -8,7 +8,7 @@ const handleWebhook = async (req, res) => {
   const statuses = value["statuses"];
   const timestamp = getTimestamp(req.body); // Get the timestamp from the request body
 
-  console.log("-------------------------------------------------------", timestamp, "-------------------------------------------------------");
+  console.log("--------------------------------------------------------", timestamp, "--------------------------------------------------------");
 
   const waId = contacts ? contacts[0]["wa_id"] : statuses[0]["recipient_id"]; // User's WhatsApp ID
 
