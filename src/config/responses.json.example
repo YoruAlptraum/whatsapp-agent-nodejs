@@ -1,0 +1,27 @@
+{
+  "responses": {
+    "welcome": {
+      "text": "",
+      "options": {
+        "1": "",
+        "2": "",
+        "3": ""
+      },
+      "next": "welcome-answer"
+    },
+    "welcome-answer": {
+      "1": {
+        "text": "",
+        "next": ""
+      },
+      "2": {
+        "text": "",
+        "next": ""
+      },
+      "3": {
+        "text": "",
+        "next": ""
+      }
+    }
+  }
+}
