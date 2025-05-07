@@ -11,9 +11,10 @@ const handleWebhook = async (req, res) => {
   console.log("--------------------------------------------------------", timestamp, "--------------------------------------------------------");
 
   const waId = contacts ? contacts[0]["wa_id"] : statuses[0]["recipient_id"]; // User's WhatsApp ID
+  const redisKey = `wa-id:${waId}`; // Redis key for the user's state
 
   // Get the redis cache info
-  let userState = await redis.hGetAll(`wa-id:${waId}`);
+  let userState = await redis.hGetAll(redisKey);
   userState = Object.assign({}, userState);
 
   // Convert string values to original types
@@ -50,7 +51,10 @@ const handleWebhook = async (req, res) => {
 
     userState.respond = userState.respond.toString(); // Convert boolean to string
 
-    await redis.hSet(`wa-id:${waId}`, userState);
+    await redis.hSet(redisKey, userState);
+
+    // Set the expiration time for the key to 1 day (86400 seconds)
+    await redis.expire(redisKey, 86400);
   } catch (error) {
     console.log(`error storing data ${error}`);
   }

@@ -68,3 +68,9 @@ sent
 "next" - what messaged to send next (if next == "end" the conversation ends)
 
 for a multiple choice input remove "message" key from a response, the next user input will be checked if it matches one of the possible options/keys
+
+## Examples from Meta
+
+json payloads responses to messages sent and received
+
+https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples
