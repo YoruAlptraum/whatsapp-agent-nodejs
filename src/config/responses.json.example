@@ -1,7 +1,7 @@
 {
   "responses": {
     "welcome": {
-      "text": "",
+      "message": "",
       "options": {
         "1": "",
         "2": "",
@@ -11,17 +11,21 @@
     },
     "welcome-answer": {
       "1": {
-        "text": "",
-        "next": ""
+        "message": "",
+        "next": "response1"
       },
       "2": {
-        "text": "",
+        "message": "",
         "next": ""
       },
       "3": {
-        "text": "",
+        "message": "",
         "next": ""
       }
-    }
+    },
+    "response1": {
+      "message": "",
+      "next": "end"
+    },
   }
 }

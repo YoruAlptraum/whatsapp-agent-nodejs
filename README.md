@@ -1,8 +1,8 @@
 # Sample Whatsapp Agent Webhook Listener with Node + Express
 
-This sample app works as a webhook listener using Node and ExpressJS.
+This sample app works as a whatsapp webhook listener using Node and ExpressJS.
 
-**Prerequisites**: [Node.js](https://nodejs.org/en/).
+**Prerequisites**: [Node.js], [Redis].
 
 taken starting webhook listener code from `https://github.com/ngrok/ngrok-webhook-nodejs-sample` commit 6d88a91
 
@@ -12,7 +12,7 @@ taken starting webhook listener code from `https://github.com/ngrok/ngrok-webhoo
 npm i
 ```
 
-install redis server on the server machine
+you also need to install and start redis server on the server machine, for windows development wsl can be used
 
 copy `responses.json.example` to `responses.json` and fill in the responses for the bot to use
 
@@ -59,3 +59,10 @@ sent
     human agent messages - stop bot from responding
 
 ```
+
+## Responses.json Structure
+
+"message" - what the bot will send the user
+"next" - what messaged to send next (if next == "end" the conversation ends)
+
+if you have a message with multiple choices the next user input will be checked if it matches the one of the possible answers on the message marked as "next"
