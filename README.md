@@ -12,9 +12,9 @@ taken starting webhook listener code from `https://github.com/ngrok/ngrok-webhoo
 npm i
 ```
 
-you also need to install and start redis server on the server machine, for windows development wsl can be used
+in `src/config/` copy `responses.json.example` to `responses.json` and fill in the responses for the bot to use
 
-copy `responses.json.example` to `responses.json` and fill in the responses for the bot to use
+you also need to install and start redis server on the server machine, for windows development wsl can be used
 
 ## Launching the app
 

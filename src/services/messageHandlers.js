@@ -1,5 +1,4 @@
 const sendMessage = require('../services/sendMessage');
-const { getClientIdByCpf } = require('../services/dbServices');
 const responses = require('../config/responses.json');
 
 const responseDict = responses.responses;
