@@ -1,0 +1,47 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "[business_account_id]",
+      "changes": [
+        {
+          "value": {
+            "messaging_product": "whatsapp",
+            "metadata": {
+              "display_phone_number": "[phone_number]",
+              "phone_number_id": "[phone_number_id]"
+            },
+            "contacts": [
+              {
+                "profile": {
+                  "name": "[contact_name]"
+                },
+                "wa_id": "[contact_wa_id]"
+              }
+            ],
+            "messages": [
+              {
+                "context": {
+                  "from": "[phone_number]",
+                  "id": "[previous_message_id]"
+                },
+                "from": "[sender_wa_id]",
+                "id": "[message_id]",
+                "timestamp": "[timestamp]",
+                "type": "interactive",
+                "interactive": {
+                  "type": "button_reply",
+                  "button_reply": {
+                    "id": "2 - Title 2",
+                    "title": "2"
+                  }
+                }
+              }
+            ]
+          },
+          "field": "messages"
+        }
+      ]
+    }
+  ]
+}

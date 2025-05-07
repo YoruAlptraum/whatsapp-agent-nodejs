@@ -45,18 +45,18 @@ to test running locally on windows you can use WSL to use redis caching
 
 use `redis-cli -n 0 FLUSHDB ASYNC` to clear redis cache
 
-## Structure
+## Base structure
 
 ```
 
 received | user messages - user messages have contacts[0]["wa_id"]
     old messages - ignore
     new messages - respond
-    interactive message replies - respond - user interactive replies have a different json structure and do not have contact)
+    interactive message replies - respond - user interactive replies have a different json structure and do not have contact
 
 sent
     bot messages - ignore
-    human agent messages - stop bot from responding
+    human agent messages - stop bot from responding if a human agent takes over the chat
 
 ```
 
