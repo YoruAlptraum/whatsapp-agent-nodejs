@@ -38,7 +38,7 @@ ngrok config add-authtoken [your-authtoken]
 ngrok http 3000 --url=[subdomain].ngrok-free.app
 ```
 
-need to download ngrok agent and create a ngrok account
+need to download ngrok agent and create a ngrok account (only need to configure authtoken once)
 
 ## Testing
 
@@ -68,6 +68,8 @@ sent
 "next" - what messaged to send next (if next == "end" the conversation ends)
 
 for a multiple choice input remove "message" key from a response, the next user input will be checked if it matches one of the possible options/keys
+
+the interactive (multiple choice) message buttons have a very limited character limit that will throw a error if reached
 
 ## Examples from Meta
 
