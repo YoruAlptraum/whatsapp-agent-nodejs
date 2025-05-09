@@ -22,6 +22,9 @@ async function handleReceivedMessage(req, res, userState) {
             }
         }
 
+
+
+
         try {
             let apiRes = null;
             // check if next message has a message to send

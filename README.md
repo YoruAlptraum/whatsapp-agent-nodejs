@@ -53,7 +53,7 @@ use `redis-cli -n 0 FLUSHDB ASYNC` to clear redis cache
 received | user messages - user messages have contacts[0]["wa_id"]
     old messages - ignore
     new messages - respond
-    interactive message replies - respond - user interactive replies have a different json structure and do not have contact
+    interactive message replies - respond - user interactive replies have a different json structure
 
 sent
     bot messages - ignore
