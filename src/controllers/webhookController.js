@@ -32,7 +32,7 @@ const handleWebhook = async (req, res) => {
   // discard old messages
   if (timestamp < userState.lastUserMessageTime) {
     console.log("Old message");
-    return res.json({ message: "Mensagem antiga" });
+    return res.json({ message: "Old message" });
   }
 
   // check if message is a received message or a sent message and handle accordingly

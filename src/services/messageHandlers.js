@@ -2,6 +2,7 @@ const { sendMessage, sendInteractiveMessage } = require('../services/sendMessage
 const responses = require('../config/responses.json');
 
 const responseDict = responses.responses;
+const invalidDict = responses.invalid;
 
 async function handleReceivedMessage(req, res, userState) {
     const value = req.body["entry"][0]["changes"][0]["value"];
@@ -21,9 +22,6 @@ async function handleReceivedMessage(req, res, userState) {
                 await sendMessage(contacts[0]["wa_id"], "stop responding");
             }
         }
-
-
-
 
         try {
             let apiRes = null;
@@ -50,7 +48,7 @@ async function handleReceivedMessage(req, res, userState) {
                     nextMessage = responseDict[userState.nextMessage][userInput].next;
                 }
                 else {
-                    msg = "Opção inválida, digite novamente";
+                    msg = invalidDict['invalid-option'].message;
                 }
             }
             if (responseDict[userState.nextMessage]["options"]) {
